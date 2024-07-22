@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include('common/link')%>
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/registration.css" />
+</head>
+<body>
+    <%- include('common/header')%>
+    <div class="registration-form">
+        <h2 class="text-center">Register</h2>
+        <form action="/registration" method="post">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input name="FirstName" type="text" class="form-control" id="name" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input name="Gmail" type="email" class="form-control" id="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="mobile">Mobile</label>
+            <input name="Mobile" type="tel" class="form-control" id="mobile" placeholder="Enter your mobile number" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input name="Password" type="password" class="form-control" id="password" placeholder="Enter your password" required>
+          </div>
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password</label>
+            <input name="ConfirmPassword" type="password" class="form-control" id="confirm-password" placeholder="Confirm your password" required>
+          </div>
+          <button type="submit" class="btn btn-custom">Submit</button>
+        </form>
+      </div>
+    
+</body>
+</html>

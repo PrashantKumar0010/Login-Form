@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/contact.css" />
+    <%- include('common/link')%>
+
+  </head>
+  <body style="background-color: #1a1a1a;">
+    <%- include('common/header')%>
+    <div class="container_box">
+      <div class="contact-container">
+        <div class="contact-image">
+          <img src="/img/5124556.jpg" alt="Contact Us" />
+        </div>
+        <div class="contact-form">
+          <h2>Send us a message</h2>
+          <form action="/contact", method="post">
+            <div class="input-box">
+              <input type="text" required  name="name"/>
+              <label>Enter your name</label>
+            </div>
+            <div class="input-box">
+              <input type="email" required  name="email"/>
+              <label>Enter your email</label>
+            </div>
+            <div class="input-box">
+              <textarea required name="message"></textarea>
+              <label>Enter your message</label>
+            </div>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glassmorphism Login Form</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/login.css">
+    <%- include('common/link')%>
+</head>
+
+<body>
+    <%- include('common/header')%>
+        <div class="Login_box">
+            <div class="login-container">
+                <h2>Login</h2>
+                <form action="/login" method="post">
+                    <div class="input-box">
+                        <input type="text" required name="Gmail">
+                        <label>Username</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" required name="Password">
+                        <label>Password</label>
+                    </div>
+                    <button class="btn-5" type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+</body>
+
+</html>

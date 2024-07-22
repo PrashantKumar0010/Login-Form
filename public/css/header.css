@@ -1,0 +1,53 @@
+.navbar {
+    background-color: black;
+}
+.navbarBtn {
+    /* background-color: rgb(0, 0, 0) ; */
+    border-radius: 5px;
+    text-align: center;
+}
+.navbarBtn i {
+   display: none;
+}
+.navBtn {
+    /* background-color: black; */
+    border: none;
+}
+.Color {
+    color :white;
+}
+.Color:hover{
+    color: rgb(255, 13, 0);
+}
+@media (max-width: 970px) {
+    .navbarBtn i {
+        display: block;
+        color: rgb(255, 255, 255);
+        font-size: 22px;
+    }
+}
+.navbar-brand i {
+    color: antiquewhite;
+    animation-name: move;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+    &:hover {
+        color: rgb(191, 255, 0);
+    }
+}
+.nav-link {
+    margin: 0px 16px;
+}
+@keyframes move {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
