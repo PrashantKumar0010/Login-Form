@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 require('dotenv').config()
-const URL = process.env.lOCAL_CONNECTING_STRING
+// const URL = process.env.lOCAL_CONNECTING_STRING
+const URL = process.env.REMOTE_DATABASE_CONNECTING_STRING
 mongoose.connect(URL).then((data) => {
     console.log("connected successfully:")
 }).catch((err) => {
