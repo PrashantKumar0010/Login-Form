@@ -1,6 +1,6 @@
 const express = require('express')
 const jwt = require('jsonwebtoken')
-const DB = require('./connection/db')
+const DB = require('./connection/DB')
 const login = require('./routes/index.js')
 const cookieParser = require('cookie-parser');
 const app = express()
