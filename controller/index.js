@@ -78,24 +78,20 @@ async function LoginUserHandler(req, res) {
         const UserPassword = req.body.Password
         const username = await person.findOne({ Gmail: UserGmail })
         if (!username) {
-            console.log('form the invalid email')
             return res.status(401).render('invalid-email')
         }
         const IsMatch = await bcrypt.compare(UserPassword, username.Password)
         if (!IsMatch) {
-            console.log('form the password')
             return res.status(401).render('invalid-password');
         }
         else {
-            console.log('form the creating toke page')
             const Token = await username.generateToken()
             res.cookie('token', Token).render('login-success', {
-                message: 'You have been successfully logged in. Redirecting to home page in 5 seconds...'
+                message: 'You have been successfully logged in. Redirecting to home page in 5 seconds... you now have access to the locked root'
             });
 
         }
     } catch (error) {
-        console.log('form the error', error)
         const { status, message } = handleError(error);
         console.log("Internal error: ", message);
         res.send({ status, message });

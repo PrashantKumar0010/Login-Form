@@ -3,7 +3,7 @@ const person = require('../models/person');
 async function authenticate(req, res, next) {
     try {
         if (req.cookies === undefined) {
-            res.render('login-required',{
+           return res.render('login-required',{
                  message: 'please login for access this page. Redirecting to login page in 5 seconds...'
             });
         }
@@ -12,19 +12,23 @@ async function authenticate(req, res, next) {
             const decoded = jwt.verify(token, process.env.SECRET_KEY);
             const user = await person.findOne({ _id: decoded._id });
             if (user === null) {
-                res.render('login-required',
+               return res.render('login-required',
                     {
                          message: 'please login for access this page. Redirecting to login page in 5 seconds...'
                     }
                 );
             }
+            else {
+            //     console.log('user found')
+            //   return  res.render('course')
             next();
+            }
         }
     }
     catch (error) {
         if(error.name === 'JsonWebTokenError', {})
         {
-            res.render('login-required', 
+           return res.render('login-required', 
                 {
                      message: 'please login for access this page. Redirecting to login page in 5 seconds...'
                 }
@@ -32,7 +36,7 @@ async function authenticate(req, res, next) {
             );
         }else {
             console.error('Authentication error: ', error);
-            res.render('login-required', {
+          return  res.render('login-required', {
                  message: 'please login for access this page. Redirecting to login page in 5 seconds...'
             });
         }
