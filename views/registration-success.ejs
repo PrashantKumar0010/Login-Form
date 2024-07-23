@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Registration Successful!</h2>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">User Details</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>First Name:</strong> <%= user.FirstName %></li>
+                    <!-- <li class="list-group-item"><strong>Last Name:</strong> <%= user.LastName %></li> -->
+                    <li class="list-group-item"><strong>Email:</strong> <%= user.Gmail %></li>
+                    <li class="list-group-item"><strong>Mobile:</strong> <%= user.Mobile %></li>
+                    <li class="list-group-item"><strong>Password:</strong> (Your password is securely stored and not displayed)</li>
+                </ul>
+                <a href="/" class="btn btn-custom mt-3">Go to Home Page</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add JavaScript for automatic redirection -->
+    <script>
+        // Redirect to home page after 5 seconds
+        setTimeout(function() {
+            window.location.href = '/';
+        }, 5000); // Adjust the time (in milliseconds) as needed
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -47,9 +47,15 @@ async function RegisterUserHandler(req, res) {
             Password,
             ConfirmPassword
         })
-        const token = await newUser.generateToken()
-        console.log(token);
-        res.status(201).send({ data: newUser });
+        res.render('registration-success', {
+            user: {
+                FirstName: newUser.FirstName,
+                LastName: newUser.FirstName,
+                Gmail: newUser.Gmail,
+                Mobile: newUser.Mobile,
+            },
+        });
+
     } catch (error) {
         const { status, message } = handleError(error);
         res.send({ status, message });
@@ -72,24 +78,64 @@ async function LoginUserHandler(req, res) {
         const UserPassword = req.body.Password
         const username = await person.findOne({ Gmail: UserGmail })
         if (!username) {
-            return res.status(401).send({ error: 'Invalid Email' });
+            console.log('form the invalid email')
+            return res.status(401).render('invalid-email')
         }
         const IsMatch = await bcrypt.compare(UserPassword, username.Password)
         if (!IsMatch) {
-            return res.status(401).send({ error: 'Invalid Password' });
+            console.log('form the password')
+            return res.status(401).render('invalid-password');
         }
         else {
+            console.log('form the creating toke page')
             const Token = await username.generateToken()
-            console.log("token", Token)
-            res.cookie('token', Token).redirect('/')
+            res.cookie('token', Token).render('login-success', {
+                message: 'You have been successfully logged in. Redirecting to home page in 5 seconds...'
+            });
 
         }
     } catch (error) {
+        console.log('form the error', error)
         const { status, message } = handleError(error);
         console.log("Internal error: ", message);
         res.send({ status, message });
     }
 }
+
+// update code 
+
+// async function LoginUserHandler(req, res) {
+//     try {
+//         const { Gmail, Password } = req.body;
+
+//         // Find the user by email
+//         const user = await person.findOne({ Gmail });
+//         if (!user) {
+//             return res.status(401).send({ error: 'Invalid Email' });
+//         }
+
+//         // Check if the password matches
+//         const isMatch = await bcrypt.compare(Password, user.Password);
+//         if (!isMatch) {
+//             return res.status(401).send({ error: 'Invalid Password' });
+//         }
+
+//         // Generate a token
+//         const token = await user.generateToken();
+
+//         // Set the token in a cookie and redirect
+//         res.cookie('token', token, { httpOnly: true, secure: process.env.NODE_ENV === 'production' })
+//             .redirect('/');
+//     } catch (error) {
+//         console.error('Internal error:', error);
+//         res.status(500).send({ error: 'Internal Server Error' });
+//     }
+// }
+// for login 
+
+
+
+
 async function ContactPageHandler(req, res) {
     try {
         res.render('contact')
@@ -97,7 +143,7 @@ async function ContactPageHandler(req, res) {
         console.log("Internal error: ", error);
         res.status(500).send({ error: 'Internal server error' });
     }
- 
+
 }
 const SendMessageHandler = async (req, res) => {
     try {
@@ -117,11 +163,20 @@ const SendMessageHandler = async (req, res) => {
         res.status(201).json({ message: 'Message created successfully', data: newMessage });
     } catch (error) {
         const { status, message } = handleError(error);
-        console.log(" error: ", status, message);
-        console.log("Internal error: ", message);
         res.send({ status, message });
     }
 };
+async function SendEmailHandler(req, res) {
+    try {
+        const { email } = req.body;
+        console.log("sending email to ", email);
+        res.send({ email });
+    } catch (error) {
+        console.log("Internal error: ", error);
+        const { status, message } = handleError(error);
+        res.send({ status, message });
+    }
+}
 module.exports = {
     GetHomePageHandler,
     RegistrationPageHandler,
@@ -131,4 +186,5 @@ module.exports = {
     showCourseHandler,
     ContactPageHandler,
     SendMessageHandler,
+    SendEmailHandler,
 };

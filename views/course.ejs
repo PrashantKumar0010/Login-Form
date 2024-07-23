@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course Page</title>
+    <%- include('common/link')%>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <!-- AOS CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/footer.css" />
+        <link rel="stylesheet" href="/css/header.css" />
+
+        <style>
+            html,
+            body {
+                overflow-x: hidden !important
+            }
+
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+            * {
+                font-family: "Poppins", sans-serif;
+            }
+        </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <%- include('common/header')%>
+
+        <!-- Course Header -->
+        <header class="jumbotron text-center" data-aos="fade-up">
+            <h1 class="display-4">Course Title</h1>
+            <p class="lead">Course Subtitle or Brief Description</p>
+        </header>
+
+        <!-- Course Overview Section -->
+        <div class="container my-5" data-aos="fade-right">
+            <div class="row">
+                <div class="col-md-8">
+                    <h2>About this Course</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+                        lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod
+                        malesuada.
+                    </p>
+                    <img src="https://via.placeholder.com/800x400" class="img-fluid mt-3" alt="Course overview" />
+                </div>
+                <div class="col-md-4" data-aos="fade-left">
+                    <h2>Course Details</h2>
+                    <p><strong>Instructor:</strong> John Doe</p>
+                    <p><strong>Duration:</strong> 10 weeks</p>
+                    <p><strong>Start Date:</strong> August 1, 2024</p>
+                    <p><strong>Price:</strong> $199</p>
+                    <a href="#" class="btn btn-primary btn-block">Enroll Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Course Content Section -->
+        <div class="container my-5" data-aos="fade-up">
+            <h2>Course Content</h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul>
+                        <li data-aos="fade-up" data-aos-delay="100">Introduction</li>
+                        <li data-aos="fade-up" data-aos-delay="200">Module 1: Basics</li>
+                        <li data-aos="fade-up" data-aos-delay="300">
+                            Module 2: Intermediate Concepts
+                        </li>
+                        <li data-aos="fade-up" data-aos-delay="400">
+                            Module 3: Advanced Topics
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Course Modules Section -->
+        <div class="container my-5" data-aos="fade-up">
+            <h2>Course Modules</h2>
+            <div class="row">
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="Module 1" />
+                        <div class="card-body">
+                            <h5 class="card-title">Module 1: Basics</h5>
+                            <p class="card-text">Learn the fundamentals of the subject.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="Module 2" />
+                        <div class="card-body">
+                            <h5 class="card-title">Module 2: Intermediate Concepts</h5>
+                            <p class="card-text">Explore intermediate-level topics.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="Module 3" />
+                        <div class="card-body">
+                            <h5 class="card-title">Module 3: Advanced Topics</h5>
+                            <p class="card-text">
+                                Dive into advanced concepts and techniques.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials Section -->
+
+        <!-- FAQ Section -->
+        <div class="container my-5" data-aos="fade-up">
+            <h2>Frequently Asked Questions</h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-header" id="faqHeadingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse"
+                                data-target="#faqCollapseOne" aria-expanded="true" aria-controls="faqCollapseOne">
+                                What is the duration of the course?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="faqCollapseOne" class="collapse show" aria-labelledby="faqHeadingOne"
+                        data-parent="#faqAccordion">
+                        <div class="card-body">
+                            The course lasts for 10 weeks, with new modules released every
+                            week.
+                        </div>
+                    </div>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-header" id="faqHeadingTwo">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#faqCollapseTwo" aria-expanded="false" aria-controls="faqCollapseTwo">
+                                What if I have questions during the course?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="faqCollapseTwo" class="collapse" aria-labelledby="faqHeadingTwo"
+                        data-parent="#faqAccordion">
+                        <div class="card-body">
+                            You can reach out to the instructor via email or join the course's
+                            online community for support.
+                        </div>
+                    </div>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-header" id="faqHeadingThree">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#faqCollapseThree" aria-expanded="false" aria-controls="faqCollapseThree">
+                                Is there a certificate upon completion?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="faqCollapseThree" class="collapse" aria-labelledby="faqHeadingThree"
+                        data-parent="#faqAccordion">
+                        <div class="card-body">
+                            Yes, you will receive a certificate of completion after finishing
+                            all modules and assessments.
+                        </div>
+                    </div>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-header" id="faqHeadingThree">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#faqCollapseThree" aria-expanded="false" aria-controls="faqCollapseThree">
+                                Is there a certificate upon completion?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="faqCollapseThree" class="collapse" aria-labelledby="faqHeadingThree"
+                        data-parent="#faqAccordion">
+                        <div class="card-body">
+                            Yes, you will receive a certificate of completion after finishing
+                            all modules and assessments.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            AOS.init();
+        </script>
+        <%- include('common/footer')%>
+</body>
+
+</html>
